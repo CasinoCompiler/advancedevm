@@ -5,7 +5,7 @@ import {Script} from "../lib/forge-std/src/Script.sol";
 import {Encoding} from "../src/Encoding.sol";
 
 contract DeployEncoding is Script {
-    function run() external returns(Encoding){
+    function run() external returns (Encoding) {
         vm.startBroadcast();
         Encoding encoding = new Encoding();
         vm.stopBroadcast();

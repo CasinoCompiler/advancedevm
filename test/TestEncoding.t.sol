@@ -8,12 +8,13 @@ import {DeployEncoding} from "../script/DeployEncoding.s.sol";
 contract TestEncoding is Test {
     DeployEncoding deployEncoding;
     Encoding encoding;
+
     function setUp() public {
         deployEncoding = new DeployEncoding();
         encoding = deployEncoding.run();
     }
 
-    function test_combineStrings() public view{
+    function test_combineStrings() public view {
         string memory combinedStrings = encoding.combineStrings();
         console.log(combinedStrings);
     }

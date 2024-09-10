@@ -3,79 +3,95 @@ pragma solidity ^0.8.0;
 
 /**
  * @title
- * @author 
- * @notice 
- * @dev 
+ * @author
+ * @notice
+ * @dev
  */
 
-/** Imports */
+/**
+ * Imports
+ */
 // @Order Imports, Interfaces, Libraries, Contracts
 
 contract Encoding {
+    /**
+     * Errors
+     */
 
-    /** Errors */   
+    /**
+     * Type Declarations
+     */
 
-    /** Type Declarations */
+    /**
+     * State Variables
+     */
 
-    /** State Variables */
+    /**
+     * Events
+     */
 
-    /** Events */
+    /**
+     * Constructor
+     */
 
-    /** Constructor */
+    /**
+     * Modifiers
+     */
 
-    /** Modifiers */
-
-    /** Functions */
+    /**
+     * Functions
+     */
     // @Order recieve, fallback, external, public, internal, private
-    receive() external payable{}
-    fallback() external payable{}
+    receive() external payable {}
+    fallback() external payable {}
 
-    function combineStrings() public pure returns(string memory){
+    function combineStrings() public pure returns (string memory) {
         return string(abi.encodePacked("Hi mom,", "I love you!"));
     }
 
-    function encodeNumber() public pure returns(bytes memory){
+    function encodeNumber() public pure returns (bytes memory) {
         return abi.encode(1);
     }
 
-    function encodeString() public pure returns(bytes memory){
+    function encodeString() public pure returns (bytes memory) {
         string memory someString = ("Some string");
         return abi.encode(someString);
     }
 
-    function encodePackString() public pure returns(bytes memory){
+    function encodePackString() public pure returns (bytes memory) {
         string memory someString = ("Some string");
         return abi.encodePacked(someString);
     }
 
-    function bytesVsEncodePackedComparison() public pure returns(bytes memory){
+    function bytesVsEncodePackedComparison() public pure returns (bytes memory) {
         string memory someString = ("Some string");
         return bytes(someString);
     }
 
-    function decodeString() public pure returns(string memory){
+    function decodeString() public pure returns (string memory) {
         return abi.decode(encodeString(), (string));
     }
 
-    function multiEncode() public pure returns(bytes memory){
+    function multiEncode() public pure returns (bytes memory) {
         bytes memory someString = abi.encode("Some string", "But bigger");
         return someString;
     }
 
-    function multiDecode() public pure returns(string memory, string memory){
+    function multiDecode() public pure returns (string memory, string memory) {
         (string memory someString, string memory someOtherString) = abi.decode(multiEncode(), (string, string));
-        return(someString, someOtherString);
+        return (someString, someOtherString);
     }
 
-    function multiPackedEncode() public pure returns(bytes memory){
+    function multiPackedEncode() public pure returns (bytes memory) {
         bytes memory someString = abi.encodePacked("Some string", "But bigger");
         return someString;
     }
 
-    function multiPackedDecode() public pure returns (string memory){
+    function multiPackedDecode() public pure returns (string memory) {
         return string(multiPackedEncode());
     }
 
-    /** Getter Functions */
-
+    /**
+     * Getter Functions
+     */
 }
